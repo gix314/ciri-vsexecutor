@@ -1,0 +1,62 @@
+{
+  "name": "ciri-vsexecutor",
+  "displayName": "Ciri's VSExecutor",
+  "description": "Rewrite version of egoDtheTurtle's vsexecutor",
+  "version": "0.0.1",
+  "publisher": "Ciri",
+  "author": {
+    "name": "Ciri"
+  },
+  "icon": "Extension.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gix314/ciri-vsexecutor"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*" 
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsexecutor.execute",
+        "title": "VSExecutor: Execute Script"
+      },
+      {
+        "command": "vsexecutor.copyBridge",
+        "title": "VSExecutor: Copy Bridge Script"
+      }
+    ],
+    "configuration": {
+      "title": "VSExecutor Settings",
+      "properties": {
+        "vsexecutor.port": {
+          "type": "number",
+          "default": 8080,
+          "description": "Port for the WebSocket server."
+        },
+        "vsexecutor.showLogs": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Roblox console errors in VSCode Output."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.0.0"
+  }
+}
